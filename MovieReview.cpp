@@ -33,4 +33,16 @@ void addNode(Node *head, Node *current, int choice){
     if (head -> next = nullptr){
         head -> next = current;
     }
+
+    if (choice == 1){
+        Node *temp = head -> next;
+        head -> next = current;
+        current -> next = temp;
+    }
+    else {
+        Node *temp = head;
+        while (temp){
+            temp = temp -> next;
+        }
+    }
 }
