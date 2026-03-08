@@ -24,23 +24,18 @@ int main(){
     cout << "\tChoice: ";
     cin >> choice;
 
-    //error handling
-    while (choice != 1 || choice != 2){
-        cout << "Please enter a vaild choice.\n";
-        cout << "Which linked list method should we use?\n";
-        cout << "\t[1] New nodes are added to the head of the list\n";
-        cout << "\t[2] New nodes are added to the tail of the list\n";
-        cout << "\tChoice: ";
-        cin >> choice;
-    }
-
     //loop for adding more nodes
     while (revChoice = 'Y'){
         Node *temp;
         cout << "Enter review rating 0-5: ";
         cin >> temp -> rating;
         cin.ignore();
-
+        cout << "Enter review comments: ";
+        getline(cin, temp -> comments);
+        cout << "Enter another review? Y/N: ";
+        cin >> revChoice;
+        revChoice = (char)toupper(revChoice);
+        addNode(head, temp, choice);
     }
 
 
