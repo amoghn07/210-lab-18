@@ -27,6 +27,7 @@ int main(){
     //loop for adding more nodes
     while (revChoice == 'Y'){
         Node *temp = new Node;
+        temp -> next = nullptr;
         cout << "Enter review rating 0-5: ";
         cin >> temp -> rating;
         cin.ignore(10000, '\n');
