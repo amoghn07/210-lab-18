@@ -9,7 +9,7 @@ struct Node{
     Node *next;
 };
 
-void addNode(Node *, Node *, int);
+void addNode(Node *&, Node *&, int);
 void output(Node*);
 
 
@@ -25,7 +25,7 @@ int main(){
     cin >> choice;
 
     //loop for adding more nodes
-    while (revChoice = 'Y'){
+    while (revChoice == 'Y'){
         Node *temp = new Node;
         cout << "Enter review rating 0-5: ";
         cin >> temp -> rating;
@@ -43,10 +43,11 @@ int main(){
     return 0;
 }
 
-void addNode(Node *head, Node *current, int choice){
+void addNode(Node *&head, Node *&current, int choice){
    //if list is empty
-    if (head -> next = nullptr){
-        head -> next = current;
+    if (!head){
+        head = current;
+        current -> next = nullptr;
     }
     //conditional for add method
     if (choice == 1){
@@ -61,4 +62,19 @@ void addNode(Node *head, Node *current, int choice){
         }
         temp -> next = current;
     }
+}
+
+void output(Node *head){
+    Node *temp = head;
+    int count;
+    int revTotal;
+    cout << "Outputting Reviews:\n";
+    while (temp){
+        count++;
+        cout << "\t> Review #" << count << ": " << temp -> rating;
+        cout << ": " << temp -> comments << endl;
+        revTotal += temp -> rating;
+        temp = temp -> next;
+    }
+    
 }
