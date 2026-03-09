@@ -2,7 +2,7 @@
 #include <string>
 #include <cctype>
 using namespace std;
-//sorry i forgot to commit that i was on break
+
 struct Node{
     double rating;
     string comments;
@@ -49,9 +49,9 @@ void addNode(Node *&head, Node *&current, int choice){
         current -> next = nullptr;
     }
     //conditional for add method
-    if (choice == 1){
-        Node *temp = head -> next;
-        head -> next = current;
+    else if(choice == 1){
+        Node *temp = head;
+        head = current;
         current -> next = temp;
     }
     else {
@@ -66,7 +66,7 @@ void addNode(Node *&head, Node *&current, int choice){
 void output(Node *head){
     Node *temp = head;
     int count;
-    int revTotal;
+    float revTotal;
     cout << "Outputting Reviews:\n";
     while (temp){
         count++;
