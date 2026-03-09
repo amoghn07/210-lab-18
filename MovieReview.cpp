@@ -2,7 +2,7 @@
 #include <string>
 #include <cctype>
 using namespace std;
-
+//sorry i forgot to commit that i was on break
 struct Node{
     double rating;
     string comments;
@@ -29,7 +29,7 @@ int main(){
         Node *temp = new Node;
         cout << "Enter review rating 0-5: ";
         cin >> temp -> rating;
-        cin.ignore();
+        cin.ignore(10000, '\n');
         cout << "Enter review comments: ";
         getline(cin, temp -> comments);
         cout << "Enter another review? Y/N: ";
@@ -37,8 +37,7 @@ int main(){
         revChoice = (char)toupper(revChoice);
         addNode(head, temp, choice);
     }
-
-
+    output(head);
     
     return 0;
 }
@@ -76,5 +75,5 @@ void output(Node *head){
         revTotal += temp -> rating;
         temp = temp -> next;
     }
-    
+    cout << "\t> Average: " << revTotal / count;
 }
